@@ -1,0 +1,6 @@
+venv
+.env
+.gitignore
+insomnia.json
+pytest.ini
+requirements_dev.txt
