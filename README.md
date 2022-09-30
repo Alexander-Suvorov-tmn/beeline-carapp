@@ -23,5 +23,15 @@ API для списка заказов должен возвращать эле�
 
 
 ## Запуск
+
+Создать .env-файл в корне проекта со следующими полями
+* POSTGRES_NAME=postgres
+* POSTGRES_USER=postgres
+* POSTGRES_PASSWORD=postgres
+* POSTGRES_HOST=postgres
+* POSTGRES_PORT=5432
+* JWT_ACCESS_TOKEN_LIFETIME=12
+* JWT_REFRESH_TOKEN_LIFETIME=1
+
+Запустить docker:
 * docker compose up --build -d
-* 

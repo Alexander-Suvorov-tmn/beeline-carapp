@@ -37,7 +37,7 @@ class CarBrandSerializer(serializers.ModelSerializer):
         read_only_fields = ('id',)
 
 
-class CarOrderSerializer(serializers.Serializer):
+class CarOrderSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
 
     color = CarColorSerializer(default=None, read_only=True)
@@ -51,8 +51,7 @@ class CarOrderSerializer(serializers.Serializer):
     date = serializers.DateField(required=False, allow_null=True)
     amount = serializers.IntegerField(validators=[MinValueValidator(0, 'Кол-во не может быть отрициательным')])
 
-    def create(self, validated_data):
-        return Order.objects.create(**validated_data)
-
-    def update(self, instance, validated_data):
-        return instance.update(**validated_data)
+    class Meta:
+        model = Order
+        fields = ('id', 'color', 'model', 'brand',
+                  'color_id', 'brand_id', 'model_id', 'amount', 'date')
